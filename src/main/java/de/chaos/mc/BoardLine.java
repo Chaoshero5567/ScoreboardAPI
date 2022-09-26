@@ -1,4 +1,4 @@
-package de.chaos.mc.utils;
+package de.chaos.mc;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

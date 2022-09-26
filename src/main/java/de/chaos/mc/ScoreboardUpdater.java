@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
@@ -20,8 +21,7 @@ public class ScoreboardUpdater {
     private HashMap<UUID, BoardPLayer> map;
     private BukkitTask task;
 
-    List<String> colours;
-
+    private List<String> colours;
     public ScoreboardUpdater(HashMap<UUID, BoardPLayer> map, Plugin plugin) {
         this.map = map;
         this.colours = new ArrayList<String>();
@@ -42,6 +42,8 @@ public class ScoreboardUpdater {
 
                     if (boardPLayer.getEasyBoard().getObjective() == null) {
                         Objective objective = scoreboard.registerNewObjective(player.getName(),"board");
+                        objective.setDisplayName(boardPLayer.getEasyBoard().getTitle());
+                        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 
                         for (BoardLine boardLine : boardPLayer.getEasyBoard().getLines()) {

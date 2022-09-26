@@ -11,5 +11,5 @@ import java.util.UUID;
 @Setter
 public class BoardPLayer {
     UUID uuid;
-    EasyBoard easyBoard;
+    de.chaos.mc.EasyBoard easyBoard;
 }
